@@ -928,12 +928,10 @@ function loadDemo() {
 
 // ── INIT ───────────────────────────────────────────────
 window.onload = function() {
-  // Check for ?sheet= param
-  const params = new URLSearchParams(window.location.search);
-  const sheetParam = params.get('sheet');
-  if (sheetParam) {
-    document.getElementById('sheet-url').value = sheetParam;
-    loadFromSheet();
+  // document.getElementById('sheet-url').value = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6w9TZtGhIjVLyYduWhGkO1XJhQMbsVxBaskZ1Gtj83LCfE5qCFyxdzK-XutmnfLCGXSMmDm7C9DCi/pub?output=csv';
+
+loadFromSheet();
+
   }
 };
 </script>
