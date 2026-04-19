@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neurology Europe — Congress Calendar</title>
+<title>Neurology Congresses selected by Augustinus Neurologie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -536,12 +536,12 @@
 <!-- MASTHEAD -->
 <header class="masthead">
   <div class="masthead-top">
-    <span class="masthead-tagline">European Neurology — Professional Calendar</span>
+    <span class="masthead-tagline">Neurology Congresses selected by Augustinus Neurologie</span>
     <span class="masthead-date" id="today-date"></span>
   </div>
   <div class="masthead-main">
-    <h1 class="site-title">Neurology<br><em>Europa</em></h1>
-    <p class="masthead-desc">A curated guide to congresses, symposia, and educational events for European neurologists. Select your destination wisely.</p>
+    <h1 class="site-title">Augustinus<br><em>Neurologie</em></h1>
+    <p class="masthead-desc">Een selectie van congressen, symposia en onderwijsactiviteiten voor Europese neurologen, samengesteld door het team van Augustinus Neurologie.</p>
   </div>
 </header>
 
@@ -554,7 +554,7 @@
 </nav>
 
 <!-- CONFIG BANNER -->
-<div class="config-banner" id="config-banner">
+<div class="config-banner" id="config-banner" style="display:none;">
   <label>Data Source</label>
   <input type="text" id="sheet-url" placeholder="Paste your Google Sheets CSV export URL here…" />
   <button class="btn-load" onclick="loadFromSheet()">Load Events</button>
@@ -596,8 +596,8 @@
       <!-- populated by JS -->
       <div class="state-panel">
         <div class="spinner"></div>
-        <h3>Ready to load</h3>
-        <p>Connect a Google Sheet above, or <a href="#" onclick="loadDemo(); return false;">load demo data</a> to see how the calendar looks.</p>
+        <h3>Evenementen laden…</h3>
+        <p>De agenda wordt opgehaald.</p>
       </div>
     </div>
   </div>
@@ -623,8 +623,8 @@
 
 <footer>
   <div>
-    <strong>Neurology Europa</strong><br>
-    Professional congress calendar for European neurologists
+    <strong>Augustinus Neurologie</strong><br>
+    Neurology Congresses selected by Augustinus Neurologie
   </div>
   <div style="text-align:right;">
     Data via Google Sheets &mdash; updated on load<br>
@@ -927,12 +927,11 @@ function loadDemo() {
 }
 
 // ── INIT ───────────────────────────────────────────────
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6w9TZtGhIjVLyYduWhGkO1XJhQMbsVxBaskZ1Gtj83LCfE5qCFyxdzK-XutmnfLCGXSMmDm7C9DCi/pub?output=csv';
+
 window.onload = function() {
-  // document.getElementById('sheet-url').value = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6w9TZtGhIjVLyYduWhGkO1XJhQMbsVxBaskZ1Gtj83LCfE5qCFyxdzK-XutmnfLCGXSMmDm7C9DCi/pub?output=csv';
-
-loadFromSheet();
-
-  }
+  document.getElementById('sheet-url').value = SHEET_URL;
+  loadFromSheet();
 };
 </script>
 </body>
