@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurology Congresses selected by Augustinus Neurologie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --ink-mid: #4a4640;
+    --ink-light: #8a8580;
+    --paper: #f5f2ec;
+    --paper-warm: #ede9e0;
+    --paper-card: #faf8f4;
+    --accent: #b84c1e;
+    --accent-light: #f0e6df;
+    --rule: #d4cfc6;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 0 40px;
+  }
+  .masthead-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead-tagline {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+  }
+  .masthead-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-light);
+  }
+  .masthead-main {
+    padding: 24px 0 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .site-title {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .site-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .masthead-desc {
+    max-width: 360px;
+    font-size: 13.5px;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    padding-bottom: 4px;
+  }
+
+  /* ── NAV STRIP ── */
+  .nav-strip {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-strip a {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--paper);
+    text-decoration: none;
+    padding: 11px 20px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    transition: background 0.15s;
+  }
+  .nav-strip a:first-child { border-left: 1px solid rgba(255,255,255,0.12); }
+  .nav-strip a:hover, .nav-strip a.active { background: var(--accent); }
+  .nav-spacer { flex: 1; }
+
+  /* ── CONFIG BANNER ── */
+  .config-banner {
+    background: var(--accent-light);
+    border-bottom: 1px solid #d4b5a8;
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .config-banner label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    white-space: nowrap;
+  }
+  .config-banner input {
+    flex: 1;
+    min-width: 280px;
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 8px 12px;
+    border: 1px solid #c4a89a;
+    background: white;
+    color: var(--ink);
+    border-radius: 3px;
+    outline: none;
+  }
+  .config-banner input:focus { border-color: var(--accent); }
+  .btn-load {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .btn-load:hover { opacity: 0.85; }
+  .config-hint {
+    width: 100%;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+  .config-hint a { color: var(--accent); }
+
+  /* ── FILTERS ── */
+  .filters-bar {
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .filter-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-right: 4px;
+  }
+  .filter-btn {
+    font-family: var(--sans);
+    font-size: 12px;
+    padding: 5px 14px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink-mid);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .filter-btn:hover { border-color: var(--ink-mid); color: var(--ink); }
+  .filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .search-wrap { margin-left: auto; }
+  .search-input {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 14px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink);
+    border-radius: 2px;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .search-input:focus { border-color: var(--ink); }
+  .search-input::placeholder { color: var(--ink-light); }
+
+  /* ── LAYOUT ── */
+  .main-wrap {
+    padding: 40px 40px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── VIEW TOGGLE ── */
+  .view-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .view-btns {
+    display: flex;
+    gap: 2px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .view-btn {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--ink-light);
+    transition: all 0.12s;
+  }
+  .view-btn.active { background: var(--ink); color: var(--paper); }
+
+  /* ── MONTH DIVIDER ── */
+  .month-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 36px 0 20px;
+  }
+  .month-divider:first-child { margin-top: 0; }
+  .month-label {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .month-rule { flex: 1; height: 1px; background: var(--rule); }
+
+  /* ── EVENT CARD ── */
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2px;
+  }
+  .event-card {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    padding: 24px 26px;
+    position: relative;
+    transition: border-color 0.15s, transform 0.15s;
+    cursor: pointer;
+  }
+  .event-card:hover {
+    border-color: var(--ink-mid);
+    transform: translateY(-2px);
+    z-index: 1;
+  }
+  .event-card.featured {
+    border-left: 3px solid var(--accent);
+  }
+  .card-type-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 1px;
+    margin-bottom: 12px;
+  }
+  .pill-congress { background: #1a1714; color: #f5f2ec; }
+  .pill-symposium { background: var(--accent); color: white; }
+  .pill-workshop { background: #4a7c6a; color: white; }
+  .pill-course { background: #5a6e8a; color: white; }
+  .pill-webinar { background: #7a5a8a; color: white; }
+  .pill-other { background: var(--ink-light); color: white; }
+
+  .card-dates {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .card-location {
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .card-location::before {
+    content: '';
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .card-description {
+    font-size: 13.5px;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .card-tag {
+    font-size: 11px;
+    color: var(--ink-light);
+    border: 1px solid var(--rule);
+    padding: 2px 8px;
+    border-radius: 1px;
+  }
+  .card-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .card-link:hover { text-decoration: underline; }
+
+  /* ── LIST VIEW ── */
+  .event-list { display: none; }
+  .list-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 180px 100px;
+    gap: 20px;
+    align-items: start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .list-row:hover { background: var(--paper-warm); margin: 0 -16px; padding: 18px 16px; }
+  .list-date { font-family: var(--mono); font-size: 12px; color: var(--ink-light); }
+  .list-title { font-family: var(--serif); font-size: 17px; }
+  .list-location { font-size: 13px; color: var(--ink-mid); }
+  .list-type { text-align: right; }
+
+  /* ── CALENDAR VIEW ── */
+  .calendar-grid { display: none; }
+  .cal-month { margin-bottom: 40px; }
+  .cal-header { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; margin-bottom: 1px; }
+  .cal-day-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    padding: 8px 0;
+  }
+  .cal-body { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--rule); }
+  .cal-cell {
+    background: var(--paper-card);
+    min-height: 80px;
+    padding: 6px 8px;
+  }
+  .cal-cell.other-month { background: var(--paper-warm); opacity: 0.5; }
+  .cal-cell.has-event { border-top: 2px solid var(--accent); }
+  .cal-day-num { font-size: 11px; color: var(--ink-light); margin-bottom: 4px; }
+  .cal-event-chip {
+    font-size: 10px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-left: 2px solid var(--accent);
+    padding: 2px 5px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* ── MODAL OVERLAY ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,23,20,0.6);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--paper-card);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid var(--rule);
+    padding: 40px;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-size: 22px;
+    color: var(--ink-light);
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+  }
+  .modal-type { margin-bottom: 12px; }
+  .modal-dates { font-family: var(--mono); font-size: 12px; color: var(--ink-light); margin-bottom: 8px; }
+  .modal-title { font-family: var(--serif); font-size: 30px; font-weight: 400; line-height: 1.2; margin-bottom: 10px; }
+  .modal-location { font-size: 14px; color: var(--ink-mid); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; }
+  .modal-location::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+  .modal-desc { font-size: 14.5px; line-height: 1.75; color: var(--ink-mid); margin-bottom: 24px; white-space: pre-wrap; }
+  .modal-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border-top: 1px solid var(--rule); padding-top: 20px; margin-bottom: 20px; }
+  .meta-item label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); display: block; margin-bottom: 3px; }
+  .meta-item span { font-size: 14px; color: var(--ink); }
+  .modal-cta {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 12px 28px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .modal-cta:hover { background: var(--accent); }
+
+  /* ── LOADING / EMPTY STATES ── */
+  .state-panel {
+    text-align: center;
+    padding: 80px 40px;
+    color: var(--ink-light);
+  }
+  .state-panel h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; margin-bottom: 10px; color: var(--ink-mid); }
+  .state-panel p { font-size: 14px; line-height: 1.6; max-width: 400px; margin: 0 auto; }
+  .spinner {
+    width: 32px; height: 32px;
+    border: 2px solid var(--rule);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+    font-size: 12px;
+    color: var(--ink-light);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer strong { font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 400; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .masthead, .nav-strip, .config-banner, .filters-bar, .main-wrap, footer { padding-left: 20px; padding-right: 20px; }
+    .site-title { font-size: 36px; }
+    .masthead-desc { display: none; }
+    .event-grid { grid-template-columns: 1fr; }
+    .list-row { grid-template-columns: 1fr; }
+    .list-location, .list-type { display: none; }
+    .modal { padding: 24px; }
+    .modal-meta { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-top">
+    <span class="masthead-tagline">Neurology Congresses selected by Augustinus Neurologie</span>
+    <span class="masthead-date" id="today-date"></span>
+  </div>
+  <div class="masthead-main">
+    <h1 class="site-title">Augustinus<br><em>Neurologie</em></h1>
+    <p class="masthead-desc">Een selectie van congressen, symposia en onderwijsactiviteiten voor Europese neurologen, samengesteld door het team van Augustinus Neurologie.</p>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-strip">
+  <a href="#" class="active" onclick="setView('cards'); return false;">All Events</a>
+  <a href="#" onclick="setView('list'); return false;">List View</a>
+  <a href="#" onclick="setView('calendar'); return false;">Calendar</a>
+  <div class="nav-spacer"></div>
+</nav>
+
+<!-- CONFIG BANNER -->
+<div class="config-banner" id="config-banner" style="display:none;">
+  <label>Data Source</label>
+  <input type="text" id="sheet-url" placeholder="Paste your Google Sheets CSV export URL here…" />
+  <button class="btn-load" onclick="loadFromSheet()">Load Events</button>
+  <div class="config-hint">
+    Share your Google Sheet → File → Share → Publish to web → CSV format. 
+    Then paste the CSV link above. 
+    <a href="#" onclick="loadDemo(); return false;">← Load demo data to preview</a>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <span class="filter-label">Type</span>
+  <button class="filter-btn active" onclick="filterType('all', this)">All</button>
+  <button class="filter-btn" onclick="filterType('Congress', this)">Congress</button>
+  <button class="filter-btn" onclick="filterType('Symposium', this)">Symposium</button>
+  <button class="filter-btn" onclick="filterType('Workshop', this)">Workshop</button>
+  <button class="filter-btn" onclick="filterType('Course', this)">Course</button>
+  <button class="filter-btn" onclick="filterType('Webinar', this)">Webinar</button>
+  <div class="search-wrap">
+    <input class="search-input" type="text" placeholder="Search events…" oninput="filterSearch(this.value)" />
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main-wrap">
+  <div class="view-toggle">
+    <h2 class="section-heading" id="view-heading">Upcoming Events</h2>
+    <div class="view-btns">
+      <button class="view-btn active" id="vb-cards" onclick="setView('cards')">Cards</button>
+      <button class="view-btn" id="vb-list" onclick="setView('list')">List</button>
+      <button class="view-btn" id="vb-calendar" onclick="setView('calendar')">Calendar</button>
+    </div>
+  </div>
+
+  <!-- CARDS VIEW -->
+  <div id="cards-view">
+    <div id="events-container">
+      <!-- populated by JS -->
+      <div class="state-panel">
+        <div class="spinner"></div>
+        <h3>Evenementen laden…</h3>
+        <p>De agenda wordt opgehaald.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIST VIEW -->
+  <div id="list-view" style="display:none;">
+    <div id="list-container"></div>
+  </div>
+
+  <!-- CALENDAR VIEW -->
+  <div id="calendar-view" style="display:none;">
+    <div id="calendar-container"></div>
+  </div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-body">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <strong>Augustinus Neurologie</strong><br>
+    Neurology Congresses selected by Augustinus Neurologie
+  </div>
+  <div style="text-align:right;">
+    Data via Google Sheets &mdash; updated on load<br>
+    <a href="#" onclick="document.getElementById('config-banner').scrollIntoView({behavior:'smooth'}); return false;">Configure data source</a>
+  </div>
+</footer>
+
+<script>
+// ── STATE ──────────────────────────────────────────────
+let allEvents = [];
+let activeType = 'all';
+let activeSearch = '';
+let currentView = 'cards';
+
+// ── DATE FORMATTING ────────────────────────────────────
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function formatDate(d) {
+  if (!d) return '';
+  const dt = new Date(d);
+  if (isNaN(dt)) return d;
+  return `${dt.getDate()} ${MONTHS_SHORT[dt.getMonth()]} ${dt.getFullYear()}`;
+}
+function formatDateRange(start, end) {
+  if (!start) return '';
+  const s = new Date(start), e = end ? new Date(end) : null;
+  if (!e || isNaN(e) || s.toDateString() === e.toDateString()) return formatDate(start);
+  if (s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth())
+    return `${s.getDate()}–${e.getDate()} ${MONTHS_SHORT[s.getMonth()]} ${s.getFullYear()}`;
+  return `${formatDate(start)} – ${formatDate(end)}`;
+}
+
+document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-GB', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+
+// ── PILL CLASS ─────────────────────────────────────────
+function pillClass(type) {
+  const t = (type||'').toLowerCase();
+  if (t === 'congress') return 'pill-congress';
+  if (t === 'symposium') return 'pill-symposium';
+  if (t === 'workshop') return 'pill-workshop';
+  if (t === 'course') return 'pill-course';
+  if (t === 'webinar') return 'pill-webinar';
+  return 'pill-other';
+}
+
+// ── RENDER: CARDS ──────────────────────────────────────
+function renderCards(events) {
+  const container = document.getElementById('events-container');
+  if (!events.length) {
+    container.innerHTML = `<div class="state-panel"><h3>No events found</h3><p>Try adjusting filters or your search term.</p></div>`;
+    return;
+  }
+
+  // group by month
+  const byMonth = {};
+  events.forEach(ev => {
+    const d = new Date(ev.startDate);
+    const key = isNaN(d) ? 'Unknown' : `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+    if (!byMonth[key]) byMonth[key] = [];
+    byMonth[key].push(ev);
+  });
+
+  let html = '';
+  Object.keys(byMonth).forEach(month => {
+    html += `<div class="month-divider"><span class="month-label">${month}</span><div class="month-rule"></div></div>`;
+    html += `<div class="event-grid">`;
+    byMonth[month].forEach(ev => {
+      const featured = ev.featured === 'true' || ev.featured === true || ev.featured === '1';
+      const tags = ev.tags ? ev.tags.split(',').map(t=>t.trim()).filter(Boolean) : [];
+      html += `
+        <div class="event-card${featured?' featured':''}" onclick="openModal(${ev._idx})">
+          <div><span class="card-type-pill ${pillClass(ev.type)}">${ev.type||'Event'}</span></div>
+          <div class="card-dates">${formatDateRange(ev.startDate, ev.endDate)}</div>
+          <h3 class="card-title">${ev.title||'Untitled Event'}</h3>
+          <div class="card-location">${ev.city||''}${ev.country ? ', '+ev.country : ''}</div>
+          ${ev.description ? `<p class="card-description">${ev.description}</p>` : ''}
+          <div class="card-footer">
+            <div class="card-tags">${tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>
+            ${ev.website ? `<a class="card-link" href="${ev.website}" target="_blank" onclick="event.stopPropagation()">Website →</a>` : ''}
+          </div>
+        </div>`;
+    });
+    html += `</div>`;
+  });
+  container.innerHTML = html;
+}
+
+// ── RENDER: LIST ───────────────────────────────────────
+function renderList(events) {
+  const container = document.getElementById('list-container');
+  if (!events.length) {
+    container.innerHTML = `<div class="state-panel"><h3>No events found</h3></div>`;
+    return;
+  }
+  let html = '';
+  events.forEach(ev => {
+    html += `
+      <div class="list-row" onclick="openModal(${ev._idx})">
+        <div class="list-date">${formatDateRange(ev.startDate, ev.endDate)}</div>
+        <div class="list-title">${ev.title||'Untitled'}</div>
+        <div class="list-location">${ev.city||''}${ev.country ? ', '+ev.country : ''}</div>
+        <div class="list-type"><span class="card-type-pill ${pillClass(ev.type)}">${ev.type||'Event'}</span></div>
+      </div>`;
+  });
+  container.innerHTML = html;
+}
+
+// ── RENDER: CALENDAR ───────────────────────────────────
+function renderCalendar(events) {
+  const container = document.getElementById('calendar-container');
+  if (!events.length) {
+    container.innerHTML = `<div class="state-panel"><h3>No events found</h3></div>`;
+    return;
+  }
+
+  // find month range
+  const dates = events.map(e => new Date(e.startDate)).filter(d => !isNaN(d));
+  if (!dates.length) { container.innerHTML = '<div class="state-panel"><h3>No dated events</h3></div>'; return; }
+  const minDate = new Date(Math.min(...dates));
+  const maxDate = new Date(Math.max(...dates));
+
+  let html = '';
+  let y = minDate.getFullYear(), m = minDate.getMonth();
+  const endY = maxDate.getFullYear(), endM = maxDate.getMonth();
+
+  while (y < endY || (y === endY && m <= endM)) {
+    html += `<div class="cal-month">`;
+    html += `<div class="month-divider" style="margin-top:0"><span class="month-label">${MONTHS[m]} ${y}</span><div class="month-rule"></div></div>`;
+    html += `<div class="cal-header">`;
+    ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => { html += `<div class="cal-day-label">${d}</div>`; });
+    html += `</div><div class="cal-body">`;
+
+    const first = new Date(y, m, 1);
+    let startDow = (first.getDay() + 6) % 7; // Mon=0
+    const daysInMonth = new Date(y, m+1, 0).getDate();
+    const total = Math.ceil((startDow + daysInMonth) / 7) * 7;
+
+    for (let i = 0; i < total; i++) {
+      const dayNum = i - startDow + 1;
+      const isOther = dayNum < 1 || dayNum > daysInMonth;
+      const cellDate = new Date(y, m, dayNum);
+      const dayEvents = events.filter(ev => {
+        const s = new Date(ev.startDate), e = ev.endDate ? new Date(ev.endDate) : s;
+        return cellDate >= s && cellDate <= e;
+      });
+      html += `<div class="cal-cell${isOther ? ' other-month':''}${dayEvents.length ? ' has-event':''}">`;
+      html += `<div class="cal-day-num">${isOther ? '' : dayNum}</div>`;
+      dayEvents.forEach(ev => {
+        html += `<div class="cal-event-chip" onclick="openModal(${ev._idx})" title="${ev.title||''}">${ev.title||'Event'}</div>`;
+      });
+      html += `</div>`;
+    }
+    html += `</div></div>`;
+
+    m++;
+    if (m > 11) { m = 0; y++; }
+  }
+  container.innerHTML = html;
+}
+
+// ── FILTERED EVENTS ────────────────────────────────────
+function getFiltered() {
+  return allEvents.filter(ev => {
+    const typeOk = activeType === 'all' || (ev.type||'').toLowerCase() === activeType.toLowerCase();
+    const q = activeSearch.toLowerCase();
+    const searchOk = !q || (ev.title||'').toLowerCase().includes(q) || (ev.city||'').toLowerCase().includes(q) || (ev.country||'').toLowerCase().includes(q) || (ev.description||'').toLowerCase().includes(q) || (ev.tags||'').toLowerCase().includes(q);
+    return typeOk && searchOk;
+  });
+}
+
+function rerender() {
+  const ev = getFiltered();
+  renderCards(ev);
+  renderList(ev);
+  renderCalendar(ev);
+}
+
+// ── MODAL ──────────────────────────────────────────────
+function openModal(idx) {
+  const ev = allEvents[idx];
+  if (!ev) return;
+  const tags = ev.tags ? ev.tags.split(',').map(t=>t.trim()).filter(Boolean) : [];
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-type"><span class="card-type-pill ${pillClass(ev.type)}">${ev.type||'Event'}</span></div>
+    <div class="modal-dates">${formatDateRange(ev.startDate, ev.endDate)}</div>
+    <h2 class="modal-title">${ev.title||'Untitled Event'}</h2>
+    <div class="modal-location">${[ev.venue, ev.city, ev.country].filter(Boolean).join(', ')}</div>
+    ${ev.description ? `<p class="modal-desc">${ev.description}</p>` : ''}
+    <div class="modal-meta">
+      ${ev.organizer ? `<div class="meta-item"><label>Organiser</label><span>${ev.organizer}</span></div>` : ''}
+      ${ev.credits ? `<div class="meta-item"><label>CME Credits</label><span>${ev.credits}</span></div>` : ''}
+      ${ev.fee ? `<div class="meta-item"><label>Registration</label><span>${ev.fee}</span></div>` : ''}
+      ${ev.language ? `<div class="meta-item"><label>Language</label><span>${ev.language}</span></div>` : ''}
+      ${tags.length ? `<div class="meta-item" style="grid-column:1/-1"><label>Topics</label><span>${tags.join(' · ')}</span></div>` : ''}
+    </div>
+    ${ev.website ? `<a class="modal-cta" href="${ev.website}" target="_blank">Visit Event Website →</a>` : ''}
+  `;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal-overlay') && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal({}); });
+
+// ── VIEW SWITCHING ─────────────────────────────────────
+function setView(v) {
+  currentView = v;
+  document.getElementById('cards-view').style.display = v === 'cards' ? '' : 'none';
+  document.getElementById('list-view').style.display = v === 'list' ? '' : 'none';
+  document.getElementById('calendar-view').style.display = v === 'calendar' ? '' : 'none';
+  ['cards','list','calendar'].forEach(name => {
+    document.getElementById('vb-'+name).classList.toggle('active', name === v);
+  });
+  const labels = {cards:'Upcoming Events', list:'Event List', calendar:'Calendar View'};
+  document.getElementById('view-heading').textContent = labels[v];
+  document.querySelectorAll('.nav-strip a').forEach((a,i) => {
+    a.classList.toggle('active', ['cards','list','calendar'][i] === v);
+  });
+}
+
+// ── FILTERS ────────────────────────────────────────────
+function filterType(type, btn) {
+  activeType = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  rerender();
+}
+function filterSearch(q) { activeSearch = q; rerender(); }
+
+// ── PARSE CSV ─────────────────────────────────────────
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g,'').toLowerCase()
+    .replace(/\s+/g,'').replace('startdate','startDate').replace('enddate','endDate'));
+  
+  return lines.slice(1).map((line, idx) => {
+    // handle quoted fields
+    const fields = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      if (line[i] === '"') { inQ = !inQ; }
+      else if (line[i] === ',' && !inQ) { fields.push(cur); cur = ''; }
+      else cur += line[i];
+    }
+    fields.push(cur);
+    const obj = { _idx: idx };
+    headers.forEach((h, i) => { obj[h] = (fields[i]||'').trim(); });
+    return obj;
+  }).filter(ev => ev.title);
+}
+
+// ── LOAD FROM SHEET ────────────────────────────────────
+async function loadFromSheet() {
+  const url = document.getElementById('sheet-url').value.trim();
+  if (!url) { alert('Please paste a Google Sheets CSV URL first.'); return; }
+  const btn = document.querySelector('.btn-load');
+  btn.textContent = 'Loading…';
+  btn.disabled = true;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Could not fetch CSV. Make sure the sheet is published publicly.');
+    const text = await res.text();
+    allEvents = parseCSV(text);
+    allEvents.sort((a,b) => new Date(a.startDate) - new Date(b.startDate));
+    allEvents.forEach((ev, i) => ev._idx = i);
+    rerender();
+    btn.textContent = `Loaded ${allEvents.length} events`;
+    setTimeout(() => { btn.textContent = 'Reload'; btn.disabled = false; }, 2000);
+  } catch (err) {
+    alert('Error: ' + err.message);
+    btn.textContent = 'Load Events';
+    btn.disabled = false;
+  }
+}
+
+// ── DEMO DATA ──────────────────────────────────────────
+function loadDemo() {
+  allEvents = [
+    { _idx:0, title:'European Stroke Organisation Conference 2026', type:'Congress', startDate:'2026-05-14', endDate:'2026-05-16', city:'Vienna', country:'Austria', venue:'Austria Center Vienna', description:'The ESOC is Europe\'s foremost annual meeting dedicated to advances in stroke research, prevention, and treatment. Over three days, leading stroke neurologists present cutting-edge clinical trials, imaging innovations, and consensus guidelines. The Danube city offers a fitting backdrop for what is widely regarded as the most collegial meeting on the calendar.', tags:'Stroke,Vascular Neurology,Clinical Trials', organizer:'European Stroke Organisation', credits:'12 CME', fee:'€420 / €190 resident', language:'English', website:'https://eso-stroke.org', featured:'true' },
+    { _idx:1, title:'EAN Annual Congress', type:'Congress', startDate:'2026-06-20', endDate:'2026-06-23', city:'Copenhagen', country:'Denmark', venue:'Bella Center', description:'The European Academy of Neurology Annual Congress is the flagship pan-European neurology meeting, bringing together over 8,000 delegates from 120 countries. The programme spans the full breadth of neurology, from rare disease updates to practical masterclasses in movement disorders, epilepsy, and neuro-immunology.', tags:'General Neurology,EAN,Education', organizer:'European Academy of Neurology', credits:'20 CME', fee:'€680 / €290 resident', language:'English', website:'https://www.ean.org', featured:'true' },
+    { _idx:2, title:'ECTRIMS 2026', type:'Congress', startDate:'2026-09-16', endDate:'2026-09-19', city:'Barcelona', country:'Spain', venue:'Fira Gran Via', description:'ECTRIMS remains the world\'s largest gathering focused exclusively on multiple sclerosis and CNS inflammatory disease. New disease-modifying therapies, biomarker discoveries, and real-world registry data make this the essential autumn destination for MS neurologists and researchers alike.', tags:'Multiple Sclerosis,Neuro-immunology,DMT', organizer:'ECTRIMS', credits:'18 CME', fee:'€590 / €250 resident', language:'English', website:'https://ectrims.eu', featured:'true' },
+    { _idx:3, title:'Movement Disorders Society European Symposium', type:'Symposium', startDate:'2026-04-24', endDate:'2026-04-26', city:'Lisbon', country:'Portugal', venue:'Centro de Congressos de Lisboa', description:'A focused three-day symposium on Parkinson\'s disease, dystonia, and related conditions. Highlights include a live deep brain stimulation discussion, emerging alpha-synuclein therapies, and a hands-on gait analysis workshop.', tags:'Parkinson\'s,Movement Disorders,DBS', organizer:'MDS European Section', credits:'14 CME', fee:'€360 / €150 resident', language:'English', website:'https://www.movementdisorders.org' },
+    { _idx:4, title:'International Epilepsy Congress – European Chapter', type:'Congress', startDate:'2026-07-10', endDate:'2026-07-14', city:'Amsterdam', country:'Netherlands', venue:'RAI Amsterdam', description:'The biennial flagship of the International League Against Epilepsy attracts epileptologists, paediatric neurologists, and EEG specialists. Breakout sessions focus on precision medicine in genetic epilepsies, advances in surgical evaluation, and updates to ILAE classification.', tags:'Epilepsy,EEG,Genetics', organizer:'ILAE', credits:'22 CME', fee:'€510 / €210 resident', language:'English', website:'https://www.ilae.org' },
+    { _idx:5, title:'Hands-on Botulinum Toxin Workshop', type:'Workshop', startDate:'2026-05-08', endDate:'2026-05-09', city:'Paris', country:'France', venue:'Hôpital Lariboisière', description:'A practical two-day workshop covering botulinum toxin injection techniques for spasticity, cervical dystonia, and hemifacial spasm. Small-group format (max 24 participants) with cadaveric and ultrasound-guided sessions led by European experts.', tags:'Botulinum Toxin,Spasticity,Practical Skills', organizer:'French Neurological Society', credits:'10 CME', fee:'€480', language:'French/English' },
+    { _idx:6, title:'Neuro-oncology Masterclass', type:'Course', startDate:'2026-03-19', endDate:'2026-03-21', city:'Zurich', country:'Switzerland', venue:'Universitätsspital Zürich', description:'An intensive residential course for neurologists and neuro-oncologists covering glioma, CNS lymphoma, and leptomeningeal disease. Case-based teaching with multidisciplinary faculty. Limited to 30 participants to ensure maximal interaction.', tags:'Brain Tumour,Neuro-oncology,Glioma', organizer:'Swiss Neuro-oncology Group', credits:'12 CME', fee:'€850 incl. accommodation', language:'English' },
+    { _idx:7, title:'Live Webinar: New Monoclonal Antibodies in Migraine Prevention', type:'Webinar', startDate:'2026-04-30', endDate:'2026-04-30', city:'Online', country:'', description:'A focused 90-minute expert panel reviewing two-year follow-up data for CGRP monoclonal antibodies, comparing real-world effectiveness and tolerability. Free registration; recording available to all EHF members post-event.', tags:'Migraine,CGRP,Headache', organizer:'European Headache Federation', credits:'2 CME', fee:'Free', language:'English', website:'https://ehf-org.org' },
+    { _idx:8, title:'DEMENTIA UPDATE — Early Diagnosis and Biomarkers', type:'Symposium', startDate:'2026-10-08', endDate:'2026-10-09', city:'Munich', country:'Germany', venue:'Deutsches Museum', description:'A focused symposium on the rapidly evolving landscape of Alzheimer\'s and related dementias, with an emphasis on blood-based biomarkers, amyloid PET access, and the emerging role of anti-amyloid therapies in European healthcare systems.', tags:'Alzheimer\'s,Dementia,Biomarkers', organizer:'German Neurological Society', credits:'10 CME', fee:'€280 / €120 resident', language:'German/English', featured:'true' },
+    { _idx:9, title:'Peripheral Nerve Society Annual Meeting', type:'Congress', startDate:'2026-06-07', endDate:'2026-06-10', city:'Bordeaux', country:'France', venue:'Palais des Congrès de Bordeaux', description:'The PNS Annual Meeting is the definitive international forum for peripheral neuropathy, Guillain-Barré syndrome, and nerve regeneration research. Three days of plenary sessions, trainee workshops, and a renowned clinical-pathological conference round off the programme.', tags:'Peripheral Neuropathy,CIDP,Neuromuscular', organizer:'Peripheral Nerve Society', credits:'16 CME', fee:'€440 / €180 resident', language:'English', website:'https://www.peripheralnervesociety.org' },
+  ];
+  allEvents.sort((a,b) => new Date(a.startDate) - new Date(b.startDate));
+  document.getElementById('sheet-url').value = '(demo data loaded)';
+  rerender();
+}
+
+// ── INIT ───────────────────────────────────────────────
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6w9TZtGhIjVLyYduWhGkO1XJhQMbsVxBaskZ1Gtj83LCfE5qCFyxdzK-XutmnfLCGXSMmDm7C9DCi/pub?output=csv';
+
+window.onload = function() {
+  document.getElementById('sheet-url').value = SHEET_URL;
+  loadFromSheet();
+};
+</script>
+</body>
+</html>
